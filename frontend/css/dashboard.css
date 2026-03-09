@@ -170,6 +170,29 @@ body {
   color: var(--text-dark);
 }
 
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.add-item-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.add-item-btn:hover {
+  background: #2559c9;
+}
+
 .sidebar a.active {
   color: var(--primary-color);
   font-weight: 600;
