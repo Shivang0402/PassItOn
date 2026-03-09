@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PassItOn - Campus Marketplace</title>
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <style>
+      .hero {
+        text-align: center;
+        padding: 100px 20px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--accent-color)
+        );
+        color: white;
+        border-radius: 15px;
+        margin: 50px auto;
+        max-width: 800px;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .cta-btn {
+        padding: 15px 30px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: transform 0.2s;
+      }
+
+      .cta-btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .cta-btn.primary {
+        background: white;
+        color: var(--primary-color);
+      }
+
+      .cta-btn.secondary {
+        background: var(--secondary-color);
+        color: white;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin: 50px auto;
+        max-width: 1000px;
+      }
+
+      .feature-card {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+        text-align: center;
+      }
+
+      .feature-card h3 {
+        color: var(--primary-color);
+        margin-bottom: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <h2 class="logo">PassItOn</h2>
+        <nav>
+          <a href="pages/dashboard.html">Dashboard</a>
+          <a href="pages/login.html">Login</a>
+          <a href="pages/register.html">Register</a>
+        </nav>
+      </aside>
+
+      <main class="main">
+        <div class="hero">
+          <h1>Welcome to PassItOn</h1>
+          <p>
+            Your campus marketplace for buying and selling items. Connect with
+            fellow students and find great deals!
+          </p>
+          <div class="cta-buttons">
+            <a href="pages/login.html" class="cta-btn primary">Login</a>
+            <a href="pages/register.html" class="cta-btn secondary"
+              >Get Started</a
+            >
+          </div>
+        </div>
+
+        <div class="features">
+          <div class="feature-card">
+            <h3>📚 Easy Listing</h3>
+            <p>List your items with photos and descriptions in minutes</p>
+          </div>
+          <div class="feature-card">
+            <h3>🔍 Smart Search</h3>
+            <p>Find exactly what you're looking for with our search tools</p>
+          </div>
+          <div class="feature-card">
+            <h3>🤝 Safe Transactions</h3>
+            <p>Connect directly with verified campus members</p>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
