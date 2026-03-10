@@ -1,0 +1,78 @@
+/* Index page styles */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--accent-color)
+  );
+  color: white;
+  border-radius: 15px;
+  margin: 50px auto;
+  max-width: 800px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+}
+
+.cta-btn.primary {
+  background: white;
+  color: var(--primary-color);
+}
+
+.cta-btn.secondary {
+  background: var(--secondary-color);
+  color: white;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin: 50px auto;
+  max-width: 1000px;
+}
+
+.feature-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+
+.feature-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}

@@ -1,97 +1,15 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family:
-    Segoe UI,
-    sans-serif;
-}
-
-:root {
-  --primary-color: #2f6fed;
-  --secondary-color: #ff6b6b;
-  --accent-color: #4ecdc4;
-  --background-light: #f6f7fb;
-  --text-dark: #333;
-  --text-medium: #555;
-  --border-color: #e6e6e6;
-}
-
-body {
-  background: var(--background-light);
-  color: var(--text-dark);
-}
-
-.container {
-  display: flex;
-  height: 100vh;
-}
-
-.sidebar {
-  width: 230px;
-  background: #ffffff;
-  padding: 25px;
-  border-right: 1px solid var(--border-color);
-  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.03);
-}
-
-.logo {
-  margin-bottom: 30px;
-  font-weight: 600;
-  color: var(--accent-color);
-}
-
-.sidebar nav {
-  display: flex;
-  flex-direction: column;
-}
-
-.sidebar a {
-  text-decoration: none;
-  color: var(--text-medium);
-  padding: 10px 0;
-  font-size: 15px;
-}
-
-.sidebar a:hover {
-  color: var(--primary-color);
-}
-
-.divider {
-  margin: 20px 0;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.main {
-  flex: 1;
-  padding: 30px;
-  overflow-y: auto;
-}
-
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-.topbar h1 {
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--primary-color);
-}
-
-.topbar input {
-  padding: 8px 12px;
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  outline: none;
-}
-
+/* Dashboard-specific styles */
 .item-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 25px;
+  gap: 30px;
+}
+
+/* increase card width on desktop for better text layout */
+@media (min-width: 768px) {
+  .item-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
 }
 
 .item-card {
@@ -110,24 +28,30 @@ body {
 .item-card img {
   width: 100%;
   height: 140px;
-  object-fit: cover;
+  object-fit: contain; /* show full image without cutting */
+  background: #f9f9f9; /* subtle background for letterboxing */
 }
 
 .item-info {
-  padding: 15px;
+  padding: 25px;
 }
 
 .item-info h4 {
-  font-size: 16px;
-  margin-bottom: 6px;
+  font-size: 15px;
 }
 
 .price {
   color: var(--primary-color);
   font-weight: 600;
+  margin-top: 6px;
   margin-bottom: 10px;
 }
-
+.seller_name {
+  font-weight: 400;
+  font-size: 12px;
+  color: rgb(173, 173, 173);
+  margin-top: 2px;
+}
 .item-info button {
   border: none;
   background: var(--primary-color);
@@ -139,8 +63,21 @@ body {
   transition: background 0.2s;
 }
 
+.item-info button {
+  margin-left: -3px;
+  border: none;
+  width: 100px;
+  background: rgb(61, 97, 240);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
 .item-info button:hover {
-  background: var(--secondary-color);
+  background: rgb(48, 48, 210);
 }
 
 .account-info {
@@ -274,4 +211,38 @@ body {
 
 .auth-links a:hover {
   text-decoration: underline;
+}
+/* container for main and additional details inside item-card */
+.info-container {
+  display: flex;
+  gap: 20px; /* reduced gap to move right container left */
+  align-items: stretch; /* make both children same height */
+  padding: 10px 0;
+}
+
+/* shared box style so both sides match */
+.item-info,
+.additional_info {
+  flex: 1;
+  padding: 12px;
+  background: #fff;
+  border: none; /* remove borders */
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--text-dark);
+  box-sizing: border-box;
+}
+
+.item-info {
+  padding-right: 20px; /* extra right padding for left container */
+}
+
+.additional_info {
+  /* ensure its content is vertically centered */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* appropriate styling: subtle background and lighter text */
+  color: var(--text-medium);
+  font-style: italic;
 }
