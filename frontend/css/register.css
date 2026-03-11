@@ -9,19 +9,31 @@
 }
 
 .form-group {
+  position: relative;
   margin-bottom: 20px;
 }
 
 .form-group label {
-  display: block;
-  margin-bottom: 5px;
+  position: absolute;
+  left: 10px;
+  top: 45%;
+  transform: translateY(-50%);
   font-weight: 600;
   color: var(--text-dark);
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+  top: 0;
+  font-size: 12px;
+  color: var(--primary-color);
 }
 
 .form-group input {
   width: 100%;
-  padding: 10px;
+  padding: 12px 10px 10px;
   border: 1px solid var(--border-color);
   border-radius: 6px;
   outline: none;
@@ -50,14 +62,18 @@
   cursor: pointer;
   transition: background 0.2s;
 }
-
-.auth-btn:hover:not(:disabled) {
-  background: var(--secondary-color);
+.form-group input {
+  width: 100%;
+  padding: 12px 10px 10px;
+  border: none;
+  border-bottom: 1.5px solid var(--border-color);
+  outline: none;
+  font-size: 14px;
+  border-radius: 0; /* remove border radius for underline style */
 }
 
-.auth-btn:disabled {
-  background: var(--text-medium);
-  cursor: not-allowed;
+.auth-btn:hover {
+  background-color: rgb(11, 70, 219);
 }
 
 .auth-links {

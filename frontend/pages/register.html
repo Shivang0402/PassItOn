@@ -28,7 +28,6 @@
         <div class="auth-card">
           <form name="registerForm" ng-submit="register()" novalidate>
             <div class="form-group">
-              <label for="name">Full Name</label>
               <input
                 type="text"
                 id="name"
@@ -36,7 +35,9 @@
                 ng-model="user.name"
                 ng-minlength="2"
                 required
+                placeholder=" "
               />
+              <label for="name">Full Name</label>
               <div
                 class="error-message"
                 ng-show="registerForm.name.$touched && registerForm.name.$invalid"
@@ -51,14 +52,15 @@
             </div>
 
             <div class="form-group">
-              <label for="email">Email</label>
               <input
                 type="email"
                 id="email"
                 name="email"
                 ng-model="user.email"
                 required
+                placeholder=" "
               />
+              <label for="email">Email</label>
               <div
                 class="error-message"
                 ng-show="registerForm.email.$touched && registerForm.email.$invalid"
@@ -73,7 +75,6 @@
             </div>
 
             <div class="form-group">
-              <label for="password">Password</label>
               <input
                 type="password"
                 id="password"
@@ -82,7 +83,9 @@
                 ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/"
                 ng-minlength="6"
                 required
+                placeholder=" "
               />
+              <label for="password">Password</label>
               <div
                 class="error-message"
                 ng-show="registerForm.password.$touched && registerForm.password.$invalid"
@@ -100,7 +103,6 @@
             </div>
 
             <div class="form-group">
-              <label for="confirmPassword">Confirm Password</label>
               <input
                 type="password"
                 id="confirmPassword"
@@ -108,7 +110,9 @@
                 ng-model="user.confirmPassword"
                 ng-match="user.password"
                 required
+                placeholder=" "
               />
+              <label for="confirmPassword">Confirm Password</label>
               <div
                 class="error-message"
                 ng-show="registerForm.confirmPassword.$touched && registerForm.confirmPassword.$invalid"
