@@ -8,27 +8,29 @@
       body {
         width: 100%;
         height: 100%;
-        background-color: #0f0e47;
+       background-color: #d7dadc;
       }
       .card {
-        background-color: #8686ac;
+        background-color: #ebeff0ee;
         display: absolute;
         height: 400px;
-        width: 250px;
+        width: 267px;
         border-radius: 25px;
         display: flex;
         flex-direction: column;
         align-items: center;
         margin: 10px;
+        box-shadow:  8px 8px 10px 3px rgba(0, 0, 0, 0.1);
       }
       .photo {
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 240px;
-        width: 240px;
+        height: 250px;
+        width: 250px;
         border-radius: 25px;
         margin: 5px;
+        box-shadow: -1px -1px 2px 1px rgba(0, 0, 0, 0.1);
       }
       .photo img {
         width: 100%;
@@ -36,18 +38,7 @@
         object-fit: cover;
         border-radius: 25px;
       }
-      button {
-        border-radius: 15px;
-        padding: 5px 5px;
-        width: 120px;
-        background-color: #0f0e47;
-        color: white;
-        border: none;
-        margin: 10px;
-        height: 30px;
-        box-shadow: 0px 4px 6px rgba(194, 181, 181, 0.1);
-      }
-
+      
       .info {
         display: flex;
         flex-direction: column;
@@ -56,15 +47,72 @@
         height: 100%;
         width: 100%;
       }
-      ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
+
+      .details {
+        position: relative;
         display: flex;
         flex-direction: column;
-        align-items: center;
         justify-content: center;
+        height: 100px;
+        width: 95%;
+        border-radius: 25px;
       }
+      .item {
+        position: absolute;
+        top: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #000000;
+        margin-bottom: 5px;
+        padding: 10px;
+      }
+      .description {
+        position: absolute;
+        top: 40px;
+        border-radius: 20px;
+        padding: 5px;
+        font-size: 13px;
+        color: #000000;
+        margin-top: 5px;
+      }
+      .price-button {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        position:absolute;
+      }
+      .button button {
+        background-color: #000000;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        position: relative;
+        top: 65px;
+        border-radius: 15px;
+        padding: 5px 5px;
+        width: 160px;
+        color: white;
+        border: none;
+        margin: 10px;
+        height: 30px;
+        box-shadow: 0px 4px 6px rgba(194, 181, 181, 0.1);
+      }
+       .price {
+        position: relative;
+        display: flex;
+        top: 65px;
+        color: #000000;
+        border-radius: 15px;
+        width: 60px;
+        justify-content: center;
+        height: 18px;
+        padding: 5px 5px;
+        font-size: 20px;
+        font-weight: bold;
+        
+      } 
+
     </style>
   </head>
   <body>
@@ -73,18 +121,33 @@
         <img src="../assets/calaculator.jpg" alt="Item Photo" />
       </div>
       <div class="info">
-        <div class="detals">
-          <ul>
-            <li>Rs.250</li>
-            <li>Item Description</li>
-            <li>Item Category</li>
-          </ul>
+        <div class="details">
+          <div class="item">
+            Fx-82MS Scientific Calculator
+          </div>
+         <div class="description">
+            A high-performance scientific calculator with advanced functions.
+          </div>
+        <div class="price-button">
+          <div class="price">
+            ₹250
+          </div>
+          <div class="button"><button>Reserve</button>
+          </div>
         </div>
-        <div class="name"><button>Reserve</button></div>
       </div>
     </div>
   </body>
 </html>
+
+
+
+
+
+
+
+
+
 <!-- #272757
 #8686AC
 #505081
