@@ -15,7 +15,7 @@
 .form-group label {
   position: absolute;
   left: 10px;
-  top: 45%; /* slightly higher for bottom margin */
+  top: 45%;
   transform: translateY(-50%);
   font-weight: 600;
   color: var(--text-dark);
@@ -23,7 +23,6 @@
   transition: all 0.2s ease;
 }
 
-/* floating label when input focused or has content */
 .form-group input:focus + label,
 .form-group input:not(:placeholder-shown) + label {
   top: 0;

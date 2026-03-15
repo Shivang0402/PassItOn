@@ -2,254 +2,53 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      body {
-        width: 100%;
-        height: 100%;
-       background-color: #d7dadc;
-      }
-      .card {
-        background-color: #ebeff0ee;
-        display: absolute;
-        height: 400px;
-        width: 267px;
-        border-radius: 25px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 10px;
-        box-shadow:  8px 8px 10px 3px rgba(0, 0, 0, 0.1);
-      }
-      .photo {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 250px;
-        width: 250px;
-        border-radius: 25px;
-        margin: 5px;
-        box-shadow: -1px -1px 2px 1px rgba(0, 0, 0, 0.1);
-      }
-      .photo img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 25px;
-      }
-      
-      .info {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        height: 100%;
-        width: 100%;
-      }
-
-      .details {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        height: 100px;
-        width: 95%;
-        border-radius: 25px;
-      }
-      .item {
-        position: absolute;
-        top: 5px;
-        font-size: 18px;
-        font-weight: bold;
-        color: #000000;
-        margin-bottom: 5px;
-        padding: 10px;
-      }
-      .description {
-        position: absolute;
-        top: 40px;
-        border-radius: 20px;
-        padding: 5px;
-        font-size: 13px;
-        color: #000000;
-        margin-top: 5px;
-      }
-      .price-button {
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        width: 100%;
-        position:absolute;
-      }
-      .button button {
-        background-color: #000000;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-        position: relative;
-        top: 65px;
-        border-radius: 15px;
-        padding: 5px 5px;
-        width: 160px;
-        color: white;
-        border: none;
-        margin: 10px;
-        height: 30px;
-        box-shadow: 0px 4px 6px rgba(194, 181, 181, 0.1);
-      }
-       .price {
-        position: relative;
-        display: flex;
-        top: 65px;
-        color: #000000;
-        border-radius: 15px;
-        width: 60px;
-        justify-content: center;
-        height: 18px;
-        padding: 5px 5px;
-        font-size: 20px;
-        font-weight: bold;
-        
-      } 
-
-      @media (max-width: 768px) {
-        .card {
-          width: 200px;
-          height: 300px;
-        }
-        .photo {
-          width: 180px;
-          height: 180px;
-        }
-        .item {
-          font-size: 14px;
-        }
-        .description {
-          font-size: 11px;
-        }
-        .button button {
-          width: 120px;
-          height: 25px;
-        }
-        .price {
-          font-size: 16px;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .card {
-          width: 150px;
-          height: 250px;
-        }
-        .photo {
-          width: 130px;
-          height: 130px;
-        }
-        .item {
-          font-size: 12px;
-        }
-        .description {
-          font-size: 10px;
-        }
-        .button button {
-          width: 100px;
-          height: 20px;
-        }
-        .price {
-          font-size: 14px;
-        }
-      }
+    <title>PassItOn</title>
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
   </head>
   <body>
-    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; padding: 20px;">
-      <div class="card">
-        <div class="photo">
-          <img src="../assets/calaculator.jpg" alt="Item Photo" />
-        </div>
-        <div class="info">
-          <div class="details">
-            <div class="item">
-              Fx-82MS Scientific Calculator
-            </div>
-           <div class="description">
-              A high-performance scientific calculator with advanced functions.
-            </div>
-          <div class="price-button">
-            <div class="price">
-              ₹250
-            </div>
-            <div class="button"><button>Reserve</button>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="container">
+      <aside class="sidebar">
+        <h2 class="logo">PassItOn</h2>
 
-      <div class="card">
-        <div class="photo">
-          <img src="../assets/rollerscale_files/71cxTaE+KjL.jpg" alt="Item Photo" />
-        </div>
-        <div class="info">
-          <div class="details">
-            <div class="item">
-              Roller Scale
-            </div>
-           <div class="description">
-              Digital weighing scale with roller functionality.
-            </div>
-          <div class="price-button">
-            <div class="price">
-              ₹200
-            </div>
-            <div class="button"><button>Reserve</button>
-            </div>
-          </div>
-        </div>
-      </div>
+        <nav>
+          <a href="dashboard.html" class="active">Dashboard</a>
+          <a href="#">Browse Items</a>
+          <a href="#">List Item</a>
+          <a href="#">My Listings</a>
+          <a href="account.html">Account</a>
 
-      <div class="card">
-        <div class="photo">
-          <img src="../assets/apron.jpg" alt="Item Photo" />
-        </div>
-        <div class="info">
-          <div class="details">
-            <div class="item">
-              Kitchen Apron
-            </div>
-           <div class="description">
-              Professional kitchen apron for cooking and baking.
-            </div>
-          <div class="price-button">
-            <div class="price">
-              ₹500
-            </div>
-            <div class="button"><button>Reserve</button>
-            </div>
-          </div>
-        </div>
-      </div>
+          <div class="divider"></div>
+          <a href="../index.html">Logout</a>
+        </nav>
+      </aside>
 
-      <div class="card">
-        <div class="photo">
-          <img src="../assets/sheet container.avif" alt="Item Photo" />
-        </div>
-        <div class="info">
-          <div class="details">
-            <div class="item">
-              Sheet Container
+      <main class="main">
+        <header class="topbar">
+          <h1>Hello, Username</h1>
+          <input type="text" placeholder="Search items..." />
+        </header>
+        <div class="main_container">
+          <div class="card">
+            <div class="photo">
+              <img src="../assets/calaculator.jpg" alt="Item Photo" />
             </div>
-           <div class="description">
-              Storage container for organizing sheets and documents.
-            </div>
-          <div class="price-button">
-            <div class="price">
-              ₹250
-            </div>
-            <div class="button"><button>Reserve</button>
+            <div class="info">
+              <div class="details">
+                <div class="item">Fx-82MS Scientific Calculator</div>
+                <div class="description">
+                  A high-performance scientific calculator with advanced
+                  functions.
+                </div>
+                <div class="price-button">
+                  <div class="price">₹250</div>
+                  <div class="button"><button>Reserve</button></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   </body>
 </html>
