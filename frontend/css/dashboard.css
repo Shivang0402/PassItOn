@@ -1,15 +1,19 @@
 .card {
   margin: 30px;
-  background-color: #ebeff0ee;
+  background-color: #ffffffee;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 380px;
+  height: 350px;
   width: 242px;
   border-radius: 28px;
   box-shadow:
-    8px 8px 10px 3px rgba(0, 0, 0, 0.24),
-    -4px -4px 25px 2px rgba(27, 26, 26, 0.238);
+    6px 6px 16px 0px rgba(41, 41, 42, 0.24),
+    -4px -4px 16px 2px rgba(24, 24, 24, 0.238);
+}
+.card:hover {
+  transform: translateY(-10px);
+  transition: transform all ease 0.4s;
 }
 .photo {
   display: flex;
@@ -40,8 +44,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 90px;
-  width: 95%;
+  height: 100%;
+  width: 100%;
   border-radius: 25px;
 }
 .item {
@@ -54,7 +58,7 @@
 }
 .description {
   position: absolute;
-  top: 40px;
+  top: 30px;
   font-size: 13px;
   color: #000;
   margin-left: 7px;
@@ -63,32 +67,34 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  width: 100%;
 }
+
 .button button {
   background-color: #000;
   display: flex;
   justify-content: center;
   position: relative;
-  top: 65px;
-  border-radius: 15px;
+  top: 35px;
+  border-radius: 16px;
   padding: 5px;
-  width: 160px;
+  width: 140px;
   color: #fff;
   border: none;
   margin: 10px;
   height: 30px;
-  box-shadow: 0 4px 6px rgba(194, 181, 181, 0.1);
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
 }
 .price {
+  margin-left: 10px;
   position: relative;
   display: flex;
-  top: 69px;
+  top: 42px;
   color: #000;
+  font-size: 18px;
 }
 
 .button button:hover {
-  /* background: #3030d2; */
+  background-color: #333;
 }
 .account-info {
   background: #fff;
@@ -132,7 +138,7 @@
 .add-item-btn:hover {
   background: #2559c9;
 }
-.sidebar a.active {
+.navbar a.active {
   color: var(--primary-color);
   font-weight: 600;
 }
@@ -149,7 +155,6 @@
 }
 .info-container {
   display: flex;
-  gap: 20px;
   align-items: stretch;
   padding: 10px 0;
 }
@@ -160,4 +165,5 @@
 }
 .main_container {
   display: flex;
+  justify-content: space-evenly;
 }
