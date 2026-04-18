@@ -3,20 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Account - PassItOn</title>
+    <title>List Item - PassItOn</title>
     <link rel="stylesheet" href="../css/common.css" />
     <link rel="stylesheet" href="../css/account.css" />
   </head>
-  <body data-page="account">
+  <body data-page="list-item">
     <div class="container">
       <aside class="sidebar">
         <div class="logo">PassItOn</div>
         <nav>
           <a href="dashboard.html">Dashboard</a>
-          <a href="dashboard.html#browse">Browse Items</a>
-          <a href="list-item.html">List Item</a>
+          <a href="list-item.html" class="active">List Item</a>
           <a href="my-listings.html">My Listings</a>
-          <a href="account.html" class="active">Account</a>
+          <a href="account.html">Account</a>
           <div class="divider"></div>
           <a href="#" class="logout-link">Logout</a>
         </nav>
@@ -24,67 +23,39 @@
 
       <main class="main">
         <header class="topbar">
-          <h1 id="userNameHeader">My Account</h1>
+          <h1>List an Item</h1>
+          <p>
+            Upload an image file and describe your item so others can claim it.
+          </p>
         </header>
-
-        <section class="section profile-section">
-          <div class="section-header">
-            <h2>Profile Information</h2>
-          </div>
-          <form id="profileForm" class="profile-form">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" required />
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" required />
-            </div>
-            <button type="submit" class="auth-btn">Update Profile</button>
-          </form>
-        </section>
 
         <section class="section">
           <div class="section-header">
-            <h2>Add New Item</h2>
+            <h2>New Listing</h2>
           </div>
           <form id="addItemForm" class="add-item-form">
             <div class="form-group">
-              <label for="itemTitle">Title</label>
+              <label for="itemTitle">Item Name</label>
               <input type="text" id="itemTitle" required />
             </div>
             <div class="form-group">
               <label for="itemDescription">Description</label>
-              <textarea id="itemDescription" rows="3" required></textarea>
+              <textarea id="itemDescription" rows="4" required></textarea>
             </div>
             <div class="form-group">
               <label for="itemPrice">Price</label>
               <input type="number" id="itemPrice" min="0" required />
             </div>
             <div class="form-group">
-              <label for="itemImage">Upload Image (optional)</label>
+              <label for="itemImage">Upload Image</label>
               <div class="file-upload">
                 <label class="file-upload-button" for="itemImage">Choose file</label>
                 <span class="file-upload-name">No file chosen</span>
                 <input type="file" id="itemImage" class="file-upload-input" accept="image/*" />
               </div>
             </div>
-            <button type="submit" class="auth-btn">Add Item</button>
+            <button type="submit" class="auth-btn">Create Listing</button>
           </form>
-        </section>
-
-        <section class="section">
-          <div class="section-header">
-            <h2>My Listings</h2>
-          </div>
-          <div id="myListings" class="item-grid"></div>
-        </section>
-
-        <section class="section">
-          <div class="section-header">
-            <h2>Claimed Items</h2>
-          </div>
-          <div id="claimedListings" class="item-grid"></div>
         </section>
       </main>
     </div>

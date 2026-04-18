@@ -2,19 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>PassItOn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Listings - PassItOn</title>
     <link rel="stylesheet" href="../css/common.css" />
-    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/account.css" />
   </head>
-  <body data-page="dashboard">
+  <body data-page="my-listings">
     <div class="container">
       <aside class="sidebar">
         <div class="logo">PassItOn</div>
         <nav>
-          <a href="dashboard.html" class="active">Dashboard</a>
-          <a href="dashboard.html#browse">Browse Items</a>
+          <a href="dashboard.html">Dashboard</a>
           <a href="list-item.html">List Item</a>
-          <a href="my-listings.html">My Listings</a>
+          <a href="my-listings.html" class="active">My Listings</a>
           <a href="account.html">Account</a>
           <div class="divider"></div>
           <a href="#" class="logout-link">Logout</a>
@@ -23,17 +23,15 @@
 
       <main class="main">
         <header class="topbar">
-          <div>
-            <h1 class="user_msg">Hello, User</h1>
-            <p>Browse available items and claim what you need.</p>
-          </div>
-          <input id="searchInput" type="text" placeholder="Search items..." />
+          <h1>My Listings</h1>
+          <p>Manage your active items and edit them when needed.</p>
         </header>
+
         <section class="section">
           <div class="section-header">
-            <h2>All Available Items</h2>
+            <h2>Your active listings</h2>
           </div>
-          <div id="browseItems" class="item-grid"></div>
+          <div id="myListings" class="item-grid"></div>
         </section>
       </main>
     </div>

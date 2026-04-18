@@ -42,7 +42,9 @@
 .form-group input:focus {
   border-color: var(--primary-color);
 }
-
+.has-error input {
+  border-color: var(--secondary-color);
+}
 .error-message {
   color: var(--secondary-color);
   font-size: 12px;
