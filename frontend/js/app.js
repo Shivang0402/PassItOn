@@ -144,38 +144,39 @@ const initForgotPasswordPage = () => {
 
 const buildItemCard = (item, currentUserId, onClaim, onEdit) => {
   const card = document.createElement("div");
-  card.className = "item-card";
+  card.className = "passiton-card";
   card.innerHTML = `
-    <div class="photo"><img src="${item.imageUrl || "../assets/sheet container.avif"}" alt="${item.title}" /></div>
-    <div class="item-info">
-      <h4>${item.title}</h4>
-      <p>${item.description}</p>
-      <div class="meta-row"><span>Price: ₹${item.price}</span><span>Owner: ${item.ownerName}</span></div>
-      <div class="meta-row"><span>Status: ${item.status}</span>${item.claimedByName ? `<span>Claimed by: ${item.claimedByName}</span>` : ""}</div>
+    <div class="passiton-photo">
+      <img src="${item.imageUrl || "../assets/sheet container.avif"}" alt="${item.title}" />
+    </div>
+    <div class="passiton-info">
+      <div class="passiton-item">${item.title}</div>
+      <div class="passiton-description">${item.description}</div>
+      <div class="passiton-price-button">
+        <div class="passiton-price">₹${item.price}</div>
+      </div>
     </div>
   `;
 
-  const buttonRow = document.createElement("div");
-  buttonRow.className = "button-row";
+  const priceButtonRow = card.querySelector(".passiton-price-button");
+  const actionButton = document.createElement("button");
+  const isOwner = String(item.owner) === String(currentUserId);
+  const isAvailable = item.status === "available";
 
-  if (String(item.owner) === String(currentUserId)) {
-    const editButton = document.createElement("button");
-    editButton.textContent = "Edit";
-    editButton.addEventListener("click", () => onEdit(item));
-    buttonRow.appendChild(editButton);
-  } else if (item.status === "available") {
-    const claimButton = document.createElement("button");
-    claimButton.textContent = "Claim";
-    claimButton.addEventListener("click", () => onClaim(item));
-    buttonRow.appendChild(claimButton);
+  if (isOwner) {
+    actionButton.textContent = "Reserve";
+    actionButton.disabled = true;
+    actionButton.title = "You cannot reserve your own item.";
+  } else if (isAvailable) {
+    actionButton.textContent = "Reserve";
+    actionButton.type = "button";
+    actionButton.addEventListener("click", () => onClaim(item));
   } else {
-    const claimedLabel = document.createElement("button");
-    claimedLabel.textContent = "Already Claimed";
-    claimedLabel.disabled = true;
-    buttonRow.appendChild(claimedLabel);
+    actionButton.textContent = "Claimed";
+    actionButton.disabled = true;
   }
 
-  card.appendChild(buttonRow);
+  priceButtonRow.appendChild(actionButton);
   return card;
 };
 
@@ -191,14 +192,16 @@ const initDashboardPage = async () => {
 
   const loadItems = async (query = "") => {
     const items = await fetchJson(`${apiBase}/items`);
-    const filtered = items.filter((item) => {
-      const term = query.toLowerCase();
-      return (
-        item.title.toLowerCase().includes(term) ||
-        item.description.toLowerCase().includes(term) ||
-        item.ownerName.toLowerCase().includes(term)
-      );
-    });
+    const filtered = items
+      .filter((item) => item.status === "available")
+      .filter((item) => {
+        const term = query.toLowerCase();
+        return (
+          item.title.toLowerCase().includes(term) ||
+          item.description.toLowerCase().includes(term) ||
+          item.ownerName.toLowerCase().includes(term)
+        );
+      });
     browseContainer.innerHTML = "";
     if (!filtered.length) {
       browseContainer.innerHTML =
@@ -216,7 +219,11 @@ const initDashboardPage = async () => {
               headers: auth.headers,
             });
             showToast("Item claimed successfully.");
-            loadItems(searchInput.value);
+            card.remove();
+            if (!browseContainer.querySelector(".passiton-card")) {
+              browseContainer.innerHTML =
+                "<p class='empty-state'>No items left to claim.</p>";
+            }
           } catch (error) {
             showToast(error.message, "error");
           }
