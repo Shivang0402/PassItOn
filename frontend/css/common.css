@@ -82,6 +82,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
   margin-bottom: 30px;
 }
 
@@ -89,6 +91,18 @@ body {
   font-size: 22px;
   font-weight: 600;
   color: var(--primary-color);
+}
+
+.topbar .section-note {
+  flex: 1 1 100%;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-medium);
+  background: rgba(47, 111, 237, 0.08);
+  border: 1px solid rgba(47, 111, 237, 0.18);
+  padding: 14px 18px;
+  border-radius: 14px;
 }
 
 .topbar input {
