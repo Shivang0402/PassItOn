@@ -14,7 +14,7 @@ const ItemSchema = new mongoose.Schema(
     ownerName: { type: String, required: true },
     status: {
       type: String,
-      enum: ["available", "claimed"],
+      enum: ["available", "claimed", "received"],
       default: "available",
     },
     claimedBy: {

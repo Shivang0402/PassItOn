@@ -108,7 +108,11 @@ exports.getMe = async (req, res) => {
     if (!user) {
       return res.status(404).json({ message: "User not found." });
     }
-    return res.json(user);
+    return res.json({
+      id: user._id,
+      name: user.name,
+      email: user.email,
+    });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: "Unable to load profile." });

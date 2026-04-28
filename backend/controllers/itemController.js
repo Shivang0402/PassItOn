@@ -68,7 +68,7 @@ exports.createItem = async (req, res) => {
 
 exports.updateItem = async (req, res) => {
   try {
-    const { title, description, price } = req.body;
+    const { title, description, price, status } = req.body;
     const item = await Item.findById(req.params.id);
     if (!item) {
       return res.status(404).json({ message: "Item not found." });
@@ -77,6 +77,19 @@ exports.updateItem = async (req, res) => {
       return res
         .status(403)
         .json({ message: "You can only edit your own items." });
+    }
+
+    if (status) {
+      if (status === "received") {
+        if (item.status !== "claimed") {
+          return res
+            .status(400)
+            .json({ message: "Only claimed items can be marked received." });
+        }
+        item.status = "received";
+      } else {
+        return res.status(400).json({ message: "Invalid status update." });
+      }
     }
 
     item.title = title ? title.trim() : item.title;
@@ -99,10 +112,8 @@ exports.claimItem = async (req, res) => {
     if (!item) {
       return res.status(404).json({ message: "Item not found." });
     }
-    if (item.status === "claimed") {
-      return res
-        .status(400)
-        .json({ message: "This item has already been claimed." });
+    if (item.status !== "available") {
+      return res.status(400).json({ message: "This item cannot be claimed." });
     }
     if (item.owner.toString() === req.user.id) {
       return res

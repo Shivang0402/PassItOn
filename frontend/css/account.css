@@ -267,6 +267,124 @@
   opacity: 0.6;
 }
 
+.account-item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.account-item {
+  display: grid;
+  grid-template-columns: 110px 1fr auto;
+  gap: 16px;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.account-item:nth-child(even) {
+  background: #fbfbfb;
+}
+
+.account-photo {
+  width: 110px;
+  height: 110px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--background-light);
+}
+
+.account-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.account-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.account-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.account-description {
+  font-size: 14px;
+  color: var(--text-medium);
+  line-height: 1.5;
+}
+
+.account-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--text-dark);
+}
+
+.account-meta span {
+  background: #f3f4f7;
+  padding: 6px 10px;
+  border-radius: 10px;
+}
+
+.account-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.account-action-btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 12px;
+  background: var(--primary-color);
+  color: white;
+  font-size: 13px;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.account-action-btn:hover:not(:disabled) {
+  background: #1e4fb8;
+  transform: translateY(-1px);
+}
+
+.account-action-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.account-received-btn {
+  background: #5a5a5a;
+}
+
+.account-received-btn:hover {
+  background: #5a5a5a;
+}
+
+.account-edit-btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 12px;
+  background: var(--primary-color);
+  color: white;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.account-edit-btn:hover {
+  background: #1e4fb8;
+}
+
 /* Empty state */
 .empty-state {
   grid-column: 1 / -1;
@@ -303,6 +421,12 @@
     transform: translateX(0);
     opacity: 1;
   }
+}
+
+.section-note {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--text-medium);
 }
 
 /* Profile section specific */

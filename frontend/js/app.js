@@ -61,7 +61,8 @@ const loadProfile = async () => {
     window.location.href = "login.html";
     return null;
   }
-  return response.json();
+  const profile = await response.json();
+  return { ...profile, id: profile.id || profile._id };
 };
 
 const initLoginPage = () => {
@@ -178,6 +179,56 @@ const buildItemCard = (item, currentUserId, onClaim, onEdit) => {
 
   priceButtonRow.appendChild(actionButton);
   return card;
+};
+
+const buildProfileListItem = (
+  item,
+  currentUserId,
+  onEdit = null,
+  onReceive = null,
+  isClaimedSection = false,
+) => {
+  const actionButtonHtml =
+    String(item.owner) === String(currentUserId)
+      ? item.status === "claimed"
+        ? `<button type="button" class="account-action-btn account-receive-btn">Mark received</button>`
+        : item.status === "received"
+          ? `<button type="button" class="account-action-btn account-received-btn" disabled>Received</button>`
+          : `<button type="button" class="account-action-btn account-edit-btn">Edit</button>`
+      : "";
+
+  const row = document.createElement("div");
+  row.className = "account-item";
+  row.innerHTML = `
+    <div class="account-photo">
+      <img src="${item.imageUrl || "../assets/sheet container.avif"}" alt="${item.title}" />
+    </div>
+    <div class="account-content">
+      <div class="account-title">${item.title}</div>
+      <div class="account-description">${item.description}</div>
+      <div class="account-meta">
+        <span>Price: ₹${item.price}</span>
+        <span>Status: ${item.status}</span>
+        ${isClaimedSection ? `<span>Owner: ${item.ownerName}</span>` : ""}
+        ${item.claimedByName ? `<span>Claimed by: ${item.claimedByName}</span>` : ""}
+      </div>
+    </div>
+    <div class="account-actions">
+      ${actionButtonHtml}
+    </div>
+  `;
+
+  const editButton = row.querySelector(".account-edit-btn");
+  if (editButton && onEdit) {
+    editButton.addEventListener("click", () => onEdit(item));
+  }
+
+  const receiveButton = row.querySelector(".account-receive-btn");
+  if (receiveButton && onReceive) {
+    receiveButton.addEventListener("click", () => onReceive(item, row));
+  }
+
+  return row;
 };
 
 const initDashboardPage = async () => {
@@ -302,10 +353,9 @@ const initAccountPage = async () => {
       myListings.innerHTML = "<p class='empty-state'>No items listed yet.</p>";
     } else {
       my.forEach((item) => {
-        const card = buildItemCard(
+        const row = buildProfileListItem(
           item,
           profile.id,
-          () => {},
           async () => {
             const newTitle = prompt("Edit title", item.title);
             if (!newTitle) return;
@@ -327,8 +377,22 @@ const initAccountPage = async () => {
               showToast(error.message, "error");
             }
           },
+          async (itemToReceive) => {
+            try {
+              await fetchJson(`${apiBase}/items/${itemToReceive._id}`, {
+                method: "PUT",
+                headers: auth.jsonHeaders,
+                body: JSON.stringify({ status: "received" }),
+              });
+              showToast("Item marked as received.");
+              loadMyItems();
+            } catch (error) {
+              showToast(error.message, "error");
+            }
+          },
+          false,
         );
-        myListings.appendChild(card);
+        myListings.appendChild(row);
       });
     }
   };
@@ -343,12 +407,7 @@ const initAccountPage = async () => {
         "<p class='empty-state'>You have not claimed any items yet.</p>";
     } else {
       claimed.forEach((item) => {
-        const card = buildItemCard(
-          item,
-          profile.id,
-          () => {},
-          () => {},
-        );
+        const card = buildProfileListItem(item, profile.id, null, null, true);
         claimedListings.appendChild(card);
       });
     }
@@ -405,10 +464,9 @@ const initMyListingsPage = async () => {
       myListings.innerHTML = "<p class='empty-state'>No items listed yet.</p>";
     } else {
       my.forEach((item) => {
-        const card = buildItemCard(
+        const row = buildProfileListItem(
           item,
           profile.id,
-          () => {},
           async () => {
             const newTitle = prompt("Edit title", item.title);
             if (!newTitle) return;
@@ -430,8 +488,22 @@ const initMyListingsPage = async () => {
               showToast(error.message, "error");
             }
           },
+          async (itemToReceive) => {
+            try {
+              await fetchJson(`${apiBase}/items/${itemToReceive._id}`, {
+                method: "PUT",
+                headers: auth.jsonHeaders,
+                body: JSON.stringify({ status: "received" }),
+              });
+              showToast("Item marked as received.");
+              loadMyItems();
+            } catch (error) {
+              showToast(error.message, "error");
+            }
+          },
+          false,
         );
-        myListings.appendChild(card);
+        myListings.appendChild(row);
       });
     }
   };
