@@ -1,100 +1,98 @@
-.card {
-  margin: 30px;
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.passiton-card {
   background-color: #ffffffee;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  height: 350px;
-  width: 242px;
-  border-radius: 28px;
+  border-radius: 24px;
+  overflow: hidden;
   box-shadow:
-    6px 6px 16px 0px rgba(41, 41, 42, 0.24),
-    -4px -4px 16px 2px rgba(24, 24, 24, 0.238);
+    4px 8px 18px rgba(41, 41, 42, 0.12),
+    -3px -3px 14px rgba(24, 24, 24, 0.08);
+  transition: transform 0.3s ease;
+  min-height: 360px;
+  max-height: 360px;
 }
-.card:hover {
-  transform: translateY(-10px);
-  transition: transform all ease 0.4s;
+
+.passiton-card:hover {
+  transform: translateY(-8px);
 }
-.photo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 210px;
-  width: 230px;
-  border-radius: 25px;
-  margin: 5px;
-  box-shadow: -1px -1px 2px 1px rgba(0, 0, 0, 0.1);
+
+.passiton-photo {
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  background: #f3f4f6;
 }
-.photo img {
+
+.passiton-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 25px;
 }
-.info {
+
+.passiton-info {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px;
+  flex: 1;
+}
+
+.passiton-item {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.passiton-description {
+  color: #475569;
+  line-height: 1.6;
+  min-height: 3.2rem;
+  max-height: 4.8rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.passiton-price-button {
+  display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
-  width: 100%;
-}
-.details {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-  border-radius: 25px;
-}
-.item {
-  position: absolute;
-  top: 5px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #000;
-  margin-left: 7px;
-}
-.description {
-  position: absolute;
-  top: 30px;
-  font-size: 13px;
-  color: #000;
-  margin-left: 7px;
-}
-.price-button {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+  gap: 14px;
+  flex-wrap: wrap;
 }
 
+.passiton-price {
+  font-weight: 700;
+  color: #111827;
+}
+
+.passiton-price-button button,
 .button button {
-  background-color: #000;
-  display: flex;
-  justify-content: center;
-  position: relative;
-  top: 35px;
-  border-radius: 16px;
-  padding: 5px;
-  width: 140px;
-  color: #fff;
+  background-color: #111827;
+  color: #ffffff;
   border: none;
-  margin: 10px;
-  height: 30px;
-  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
-}
-.price {
-  margin-left: 10px;
-  position: relative;
-  display: flex;
-  top: 42px;
-  color: #000;
-  font-size: 18px;
+  border-radius: 22px;
+  padding: 10px 18px;
+  min-width: 120px;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
+.passiton-price-button button:hover,
 .button button:hover {
-  background-color: #333;
+  background-color: #333333;
+  transform: translateY(-1px);
 }
 .account-info {
   background: #fff;
@@ -129,7 +127,7 @@
   color: #fff;
   border: none;
   padding: 10px 20px;
-  border-radius: 6px;
+  border-radius: 22px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;

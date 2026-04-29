@@ -1,4 +1,4 @@
-const initSearchPage = async () => {
+const initDashboardPage = async () => {
   const browseContainer = document.getElementById("browseItems");
   const searchInput = document.getElementById("searchInput");
   if (!browseContainer || !searchInput) return;
@@ -55,4 +55,4 @@ const initSearchPage = async () => {
   await loadItems();
 };
 
-window.initSearchPage = initSearchPage;
+window.initDashboardPage = initDashboardPage;
